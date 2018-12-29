@@ -28,5 +28,5 @@ Route.post('order', 'OrderController.store')
 Route.patch('order/:id', 'OrderController.update')
 Route.delete('order/:id', 'OrderController.delete')
 
-Route.post('transaction', 'TransactionController.store')
+Route.post('transactions', 'TransactionController.store')
 Route.get('transaction/:id', 'TransactionController.show')
