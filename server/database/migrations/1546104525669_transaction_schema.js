@@ -6,9 +6,8 @@ const Schema = use('Schema')
 class TransactionSchema extends Schema {
   up () {
     this.create('transactions', (table) => {
-			table.increments()
-			table.integer('order_id')
-			table.integer('total')
+      table.increments()
+      table.integer('total').notNullable()
       table.timestamps()
     })
   }

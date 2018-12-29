@@ -4,8 +4,8 @@
 const Model = use('Model')
 
 class Transaction extends Model {
-	order () {
-		return this.belongsTo('App/Models/Order', 'order_id', 'id')
+	orders() {
+	  return this.hasMany('App/Models/Order')
 	}
 }
 

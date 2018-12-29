@@ -6,10 +6,11 @@ const Schema = use('Schema')
 class OrderSchema extends Schema {
   up () {
     this.create('orders', (table) => {
-			table.increments()
-			table.integer('product_id')
-			table.integer('qty')
-			table.integer('price')
+      table.increments()
+      tabel.integer('product_id').unsigned().references('id').inTable('products')
+      table.integer('transaction_id').unsigned().references('id').inTable('transactions')
+      table.string('qty').default(0)
+      table.string('price').notNullable()
       table.timestamps()
     })
   }
