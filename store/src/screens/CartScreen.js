@@ -19,7 +19,7 @@ export class CartScreen extends Component {
   }
 
 	componentDidMount(){
-    axios.get('http://192.168.1.105:3333/products')
+    axios.get('http://192.168.1.105:3333/orders')
       .then(res => {
         this.setState({
           text: res.data
@@ -36,20 +36,20 @@ export class CartScreen extends Component {
 		<Grid style={ styles.card }>
 			<Row>
 				<Col size={1}>
-					<Image source={{ uri: item.image_url }} style={{ height: 100, width: 100 }}/>
+					<Image source={{ uri: item.product.image_url }} style={{ height: 100, width: 100 }}/>
 				</Col>
 				<Col size={2} style={{ paddingTop: 10 }}>
-					<Text>{ item.name.length <= 25 ? item.name : item.name.substr(0,25) + '...'}</Text>
+					<Text>{ item.product.name.length <= 25 ? item.product.name : item.product.name.substr(0,25) + '...'}</Text>
 					<Text>Rp {item.price}</Text>
-					<Grid>
+					<Grid style={{ paddingTop: 5 }}>
 						<Row>
-							<Col>
-								<Button small>
+							<Col size={1}>
+								<Button small style={ styles.btnPlusMinus }>
 									<Icon name='minus' type='AntDesign' />
 								</Button>
 							</Col>
-							<Col>
-								<Button small>
+							<Col size={1}>
+								<Button small style={ styles.btnPlusMinus }>
 									<Icon name='plus' type='AntDesign' />
 								</Button>
 							</Col>
@@ -65,7 +65,7 @@ export class CartScreen extends Component {
       <Container style={ styles.container }>
         <Content style={ styles.content }>
 					<FlatList
-						style        = {[{ flex:1 }, styles.bgCard]}
+						style        = {{ flex:1 }}
 						data         = {this.state.text}
 						keyExtractor = {this._keyExtractor}
 						renderItem   = {this._renderItem}
@@ -81,18 +81,15 @@ const styles = StyleSheet.create({
 	container: {
 		backgroundColor: '#f2f2f2'
 	},
-	bgCard: {
-		paddingHorizontal: 10
-	},
 	card: {
-		borderRadius: 7,
+		marginVertical: 5,
 		backgroundColor: 'white',
 		padding: 5,
 		flexDirection: 'column'
 	},
-	btnBuy: {
+	btnPlusMinus: {
 		borderRadius: 5, 
 		backgroundColor: '#2390ff',
-		left: 150
+		height: 30
 	}
 })
