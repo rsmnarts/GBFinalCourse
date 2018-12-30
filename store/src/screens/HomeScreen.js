@@ -3,7 +3,7 @@ import { Image, StyleSheet, FlatList } from 'react-native'
 import { Col, Row, Grid } from "react-native-easy-grid";
 import { 
 	Container, Content, Button,
-	Text, View
+	Text
 } from 'native-base';
 import axios from 'axios';
 
@@ -41,7 +41,7 @@ export class HomeScreen extends Component {
 				<Col size={2} style={{ paddingTop: 10 }}>
 					<Text>{ item.name.length <= 25 ? item.name : item.name.substr(0,25) + '...'}</Text>
 					<Text>Rp {item.price}</Text>
-					<Button small primary style={ styles.btnBuy }>
+					<Button small style={ styles.btnBuy }>
 						<Text>Beli</Text>
 					</Button>
 				</Col>
