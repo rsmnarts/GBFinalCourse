@@ -15,10 +15,10 @@ Open folder and follow the instruction there in README.md
 
 ## DEMO
 - Android Package - https://github.com/rsmnarts/GBFinalCourse/releases
-- Videohttps://github.com/rsmnarts/GBFinalCourse/releases
+- Video
 
 ## Thanks to
-- Stackoverlow
+- Stack Overlow
 - Muhammad Iqbal
 - Isgi Ariza
 - Ega Wachid Radiegtya
