@@ -5,7 +5,7 @@ const Model = use('Model')
 
 class Transaction extends Model {
 	orders() {
-	  return this.hasMany('App/Models/Order')
+		return this.belongToMany('App/Models/Orders')
 	}
 }
 
