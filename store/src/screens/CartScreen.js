@@ -3,7 +3,7 @@ import { Image, StyleSheet, FlatList } from 'react-native'
 import { Col, Row, Grid } from "react-native-easy-grid";
 import { 
 	Container, Content, Button,
-	Text, Icon
+	Text, Icon, Footer
 } from 'native-base';
 import axios from 'axios';
 
@@ -14,12 +14,13 @@ export class CartScreen extends Component {
 
     this.state = {
       text: [],
-      input: ''
-    }
+			input: '',
+			total: '652500'
+		}
   }
 
 	componentDidMount(){
-    axios.get('http://192.168.1.105:3333/orders')
+    axios.get('http://35.187.247.31/orders')
       .then(res => {
         this.setState({
           text: res.data
@@ -27,7 +28,20 @@ export class CartScreen extends Component {
       })
       .catch(err => {
         console.log(err)
+			})		
+	}
+
+	countTotal = () => {
+    axios.get('http://35.187.247.31/transaction/1')
+      .then(res => {
+        this.setState({
+          total: res.data.orders.price
+				})
       })
+      .catch(err => {
+        console.log(err)
+				alert(res.data)
+			})
 	}
 
 	_keyExtractor = (item, index) => index.toString()
@@ -39,7 +53,7 @@ export class CartScreen extends Component {
 					<Image source={{ uri: item.product.image_url }} style={{ height: 100, width: 100 }}/>
 				</Col>
 				<Col size={2} style={{ paddingTop: 10 }}>
-					<Text>{ item.product.name.length <= 25 ? item.product.name : item.product.name.substr(0,25) + '...'}</Text>
+					<Text>{ item.product.name.length <= 22 ? item.product.name : item.product.name.substr(0,25) + '...'}</Text>
 					<Text>Rp {item.price}</Text>
 					<Grid style={{ paddingTop: 5 }}>
 						<Row>
@@ -71,6 +85,17 @@ export class CartScreen extends Component {
 						renderItem   = {this._renderItem}
 					/>
         </Content>
+
+				<Footer style={{ backgroundColor: '#FFF', justifyContent: 'center' }}>
+					<Row style={{ justifyContent: 'center', alignItems: 'center', paddingHorizontal: 30 }}>
+						<Col>
+							<Text style={{ fontSize: 17 }}>Total Pembayaran</Text>
+						</Col>
+						<Col>
+							<Text>Rp {this.state.total}</Text>
+						</Col>
+					</Row>
+				</Footer>
       </Container>
     );
 	}
@@ -90,6 +115,6 @@ const styles = StyleSheet.create({
 	btnPlusMinus: {
 		borderRadius: 5, 
 		backgroundColor: '#2390ff',
-		height: 30
+		height: 25
 	}
 })
