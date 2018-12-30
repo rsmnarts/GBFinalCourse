@@ -14,8 +14,8 @@ Project for Arkademy Bootcamp Task, create like Bukalapak App that scrape produc
 Open folder and follow the instruction there in README.md
 
 ## DEMO
-- Android Package
-- Video 
+- Android Package - https://github.com/rsmnarts/GBFinalCourse/releases
+- Videohttps://github.com/rsmnarts/GBFinalCourse/releases
 
 ## Thanks to
 - Stackoverlow

@@ -3,7 +3,7 @@ import { Image, StyleSheet, FlatList } from 'react-native'
 import { Col, Row, Grid } from "react-native-easy-grid";
 import { 
 	Container, Content, Button,
-	Text
+	Text, Footer
 } from 'native-base';
 import axios from 'axios';
 
@@ -19,7 +19,7 @@ export class HomeScreen extends Component {
   }
 
 	componentDidMount(){
-    axios.get('http://192.168.1.105:3333/products')
+    axios.get('http://35.187.247.31/products')
       .then(res => {
         this.setState({
           text: res.data
@@ -31,8 +31,9 @@ export class HomeScreen extends Component {
 	}
 
 	_keyExtractor = (item, index) => index.toString()
-	
+
 	_renderItem = ({item, index}) => (
+				
 		<Grid style={ styles.card }>
 			<Row>
 				<Col size={1}>
