@@ -7,6 +7,9 @@ class Order extends Model {
 	product() {
 		return this.belongsTo('App/Models/Product')
 	}
+	transaction() {
+	  return this.belongsTo('App/Models/Transaction')
+	}
 }
 
 module.exports = Order
