@@ -18,4 +18,4 @@ for card in page.find_all('div', 'product-card'):
 	payload = {'name': name,'price': price,'image_url': image_url}
 	headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.90 Safari/537.36'}
 
-	print(post('http://35.187.247.31/product', data=payload, headers=headers))
+	print(post('http://localhost:7981/product', data=payload, headers=headers))
