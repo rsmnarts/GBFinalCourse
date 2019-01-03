@@ -22,10 +22,10 @@ class Home extends Component {
 				<Image source={{uri: item.image_url}} style={{height: 145, width: 145}}/>
 			</CardItem>
 			<CardItem style={{flexDirection: 'column'}}>
-				<View style={{flexDirection:'row',flexWrap: 'wrap'}}>
+				<View style={{flexDirection:'row',flexWrap: 'wrap', justifyContent: 'flex-start'}}>
 					<Text style={{fontSize: 14}}>{item.name.length <= 25 ? item.name : item.name.substr(0,25) + '...'}</Text>
+					<Text style={{}}>Rp {item.price}</Text>
 				</View>
-				<Text style={{left: 45}}>Rp {item.price}</Text>
 			</CardItem>
 		</Card>
   );
