@@ -4,11 +4,13 @@ import { reducer as reducerFrom } from 'redux-form';
 
 import RootNavigator from '../../navigators/RootNavigator'
 import product from './product'
+import cart from './cart'
 
 const reducerRouter = createNavigationReducer(RootNavigator)
 
 export default reducers = combineReducers({
 	form: reducerFrom,
 	router: reducerRouter,
-	product: product
+	product: product,
+	cart: cart
 })

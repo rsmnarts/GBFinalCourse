@@ -1,7 +1,7 @@
 const initialState = {
 	products: [],
 	isLoading: false,
-	isError: false
+	isError: false,
 }
 
 export default (state = initialState, action) => {
@@ -12,6 +12,7 @@ export default (state = initialState, action) => {
 			return {...state, isLoading: false, products: action.payload.data}
 		case 'ALL_PRODUCTS_REJECTED':
 			return {...state, isLoading: false, isError: true}
+		
 		default:
 			return state
 	}
